@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Editor Template</title>
+  <style>
+    #textContainer {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border: 2px solid #ccc;
+      margin: 20px;
+    }
+
+    #userText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(20deg);
+      font-size: 16px;
+      color: black;
+    }
+    .templet{
+        background-image: url("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/wedding-invitation-card-background-template-design-78a56950525881114481e698c322baa3_screen.jpg?ts=1694602873");
+        background-size:cover;
+        height:100vh;
+        width:100vw;
+        text-align:center;
+    }
+    .align-center{
+        text-align:center;
+    }
+
+    .div{
+        margin:15%;
+        font-family:"Roboto";
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <label for="textInput">Enter Text: </label>
+  <input type="text" id="textInput" onblur="update">
+  <button onclick="updateText()">Add Text</button>
+</div>
+
+<div>
+  <label for="fontInput">Font Size: </label>
+  <input type="number" id="fontInput" min="10" max="50" onchange="changeFontSize()">
+  <button onclick="changeFontSize()">Apply</button>
+</div>
+
+<div>
+  <label for="colorInput">Text Color: </label>
+  <input type="color" id="colorInput">
+  <button onclick="changeTextColor()">Apply</button>
+</div>
+
+<div>
+  <label for="rotationInput">Rotation Degree: </label>
+  <input type="number" id="rotationInput" min="0" max="360" onchange="rotateText()">
+  <button onclick="rotateText()">Rotate</button>
+</div>
+
+<div id="textContainer">
+  <div id="userText"></div>
+</div>
+
+<div class="templet">
+   <div class="div">
+    <div class="align-center">
+        <img class='rings' src="https://i.pinimg.com/originals/01/1c/18/011c1821834fe56ef92974de6d21c7bd.png" width="100px" height="100px"/>
+       </div>
+       <h1>PLEASE JOIN US FOR AN ENGAGEMENT PARTY ON HONOR OF</h1>
+       <h1>name1</h1>
+       <p>and</p>
+       <h1>name2</h1>
+       <br>
+       <h1>date</h1>
+       <br>
+       <div>
+        <h2><b>Time:</b>value</h2>
+        <h2><b>Venue</b>value</h2>
+       </div>
+   </div>
+</div>
+
+<script>
+  function updateText() {
+    const userInput = document.getElementById("textInput").value;
+    console.log(userInput);
+    document.getElementById("userText").textContent = userInput;
+  }
+
+  function update() {
+    console.log(document.getElementById('textInput').value);
+  }
+
+  function changeFontSize() {
+    const fontSize = document.getElementById("fontInput").value + "px";
+    document.getElementById("userText").style.fontSize = fontSize;
+  }
+
+  function changeTextColor() {
+    const textColor = document.getElementById("colorInput").value;
+    document.getElementById("userText").style.color = textColor;
+  }
+
+  function rotateText() {
+    const rotationDegree = document.getElementById("rotationInput").value + "deg";
+    document.getElementById("userText").style.transform = "translate(-50%, -50%) rotate(" + rotationDegree + ")";
+  }
+</script>
+
+</body>
+</html>
